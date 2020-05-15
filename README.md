@@ -2,6 +2,7 @@
 A small python script used for verifying the contents of a game file using the No-Intro database.
 ## Why is this needed?
 No-Intro's testimony explains it pretty well [here](https://no-intro.org/).
+
 **TL;DR:** Preservation is important, and it is very common to see ROM dumps that are tampered with for various reasons. This script makes checking your ROM dumps easy and encourages people to keep the "perfect dumps" around longer.
 ## How does it work?
 After prompting you to input a game file, this script utilizes python's hashlib and request libraries and does the following:
