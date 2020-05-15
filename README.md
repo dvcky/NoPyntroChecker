@@ -11,6 +11,7 @@ After prompting you to input a game file, this script utilizes python's hashlib 
 3. Analyzes data received from request for any game titles.
 4. Returns results based on analysis.
 ## Requirements
-Python 3+ and your choice of game files. That's it. Just make sure the game file you are checking is for a console that has been indexed by No-Intro (list of supported consoles here).
-## Installation
-To be finished
+Python 3+, an active internet connection, and your choice of game files. That's it. Just make sure the game file you are checking is for a console that has been indexed by No-Intro (list of supported consoles in the drop-down shown below [here](https://datomatic.no-intro.org/)).
+!(https://raw.githubusercontent.com/dduckyy/NoPyntroChecker/master/nopyntrochecker.png)
+## Usage
+Pretty simple, just download the NoPyntroChecker repository [here](https://github.com/dduckyy/NoPyntroChecker/archive/master.zip) and extract the "nopyntrochecker.py" file from the repository's zip file to a familiar location. As long as you have Python installed, you should be able to run it directly. The script should immediately prompt you to choose a game file/ROM dump you want to have checked with No-Intro's database. Select your file, and watch the magic happen!
