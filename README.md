@@ -24,7 +24,6 @@ Once you press enter, the script will check to make sure you only added 1 argume
 **KEEP IN MIND:** This script does not know which files are ROMs and which are not. If you input a file that isn't a ROM, it will still try to check it (which will most likely return no matches, for obvious reasons).
 
 ## FAQ
-Frequently asked questions.
 #### "I have a ROM that runs on my console/emulator fine with no issues, and your script said no matches!"
 And that is most likely the releaser's intent. Groups that release ROM dumps often look for less noticable things they can take out of ROMs, primarily to conserve space. **CLARIFICATION: This program is _NOT_ meant for verifying that your ROM is real, but rather that it is the original/unmodified dump.**
 #### "I am confident that my ROM is unmodified, but your script still said no matches!"
