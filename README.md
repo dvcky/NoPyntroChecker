@@ -25,9 +25,9 @@ Once you press enter, the script will check to make sure you only added 1 argume
 
 ## FAQ
 Frequently asked questions.
-#### "I have a ROM that runs on my console/emulator fine with no issues, and your program said no matches!"
+#### "I have a ROM that runs on my console/emulator fine with no issues, and your script said no matches!"
 And that is most likely the releaser's intent. Groups that release ROM dumps often look for less noticable things they can take out of ROMs, primarily to conserve space. **CLARIFICATION: This program is _NOT_ meant for verifying that your ROM is real, but rather that it is the original/unmodified dump.**
-#### "I am confident that my ROM is unmodified, but your program still said no matches!"
+#### "I am confident that my ROM is unmodified, but your script still said no matches!"
 Aw shucks. Most likely one of two things happened then:
 1. You were checking a lot of files at once, and you got a temp-ban. This is because sending lots of POST requests to No-Intro's database will cause it to think you are spamming or trying to DDOS them. No worries! These bans are usually over within a couple hours, and you can go back to checking your ROMS! If you are really impatient, you can use a VPN or proxy and check the ROMs on that until you are unbanned.
 2. No-Intro's database API is changed or updated. The site has stayed pretty consistent in how it functions for years, but this is bound to potentially happen at one point or another. If it does happen, it will make the script completely unusable until updated. This is sadly not something we can avoid.
