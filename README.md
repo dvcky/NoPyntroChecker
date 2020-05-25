@@ -1,5 +1,8 @@
 # NoPyntroChecker
 A small python script used for verifying the contents of a game file using the No-Intro database.
+
+**EDIT: Found a bug, only checks DS ROMs as of now. Give me a day or so to fix that, I need to index every filetype now.**
+
 ## Why is this needed?
 No-Intro's testimony explains it pretty well [here](https://no-intro.org/).
 
