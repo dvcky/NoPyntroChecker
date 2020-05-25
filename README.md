@@ -25,7 +25,7 @@ Once you press enter, the script will check to make sure you only added 1 argume
 
 ## FAQ
 Frequently asked questions.
-#### "I have a ROM that runs on my console/emulator fine with I see no issues and your program said no matches!"
+#### "I have a ROM that runs on my console/emulator fine with no issues, and your program said no matches!"
 And that is most likely the releaser's intent. Groups that release ROM dumps often look for less noticable things they can take out of ROMs, primarily to conserve space. **CLARIFICATION: This program is _NOT_ meant for verifying that your ROM is real, but rather that it is the original/unmodified dump.**
 #### "I am confident that my ROM is unmodified, but your program still said no matches!"
 Aw shucks. Most likely one of two things happened then:
