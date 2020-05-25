@@ -14,11 +14,10 @@ Once you run the script, it does the following below:
 3. Analyzes data received from request for any game titles.
 4. Returns results based on analysis.
 ## Requirements
-Python 3+, an active internet connection, and your choice of game files. That's it. Just make sure the game file you are checking is for a console that has been indexed by No-Intro (list of supported consoles in the drop-down shown below [here](https://datomatic.no-intro.org/)).
+Python 3+, an active internet connection, and your choice of game files (currently only DS ROMs, sorry :( ). 
 
-![nopyntrochecker](https://raw.githubusercontent.com/dvcky/NoPyntroChecker/master/nopyntrochecker.png)
 ## Usage
-Pretty simple, just download the NoPyntroChecker repository [here](https://github.com/dduckyy/NoPyntroChecker/archive/master.zip) and extract the "nopyntrochecker.py" file from the repository's zip file to your preferred location. As long as you have Python installed, you should be able to run it from your terminal. Usage below: 
+Pretty simple, just download the NoPyntroChecker repository [here](https://github.com/dvcky/NoPyntroChecker/archive/master.zip) and extract the "nopyntrochecker.py" file from the repository's zip file to your preferred location. As long as you have Python installed, you should be able to run it from your terminal. Usage below: 
 ```
 py nopyntrochecker.py /path/to/file/filename.filetype
 ```
