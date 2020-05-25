@@ -5,7 +5,7 @@ No-Intro's testimony explains it pretty well [here](https://no-intro.org/).
 
 **TL;DR:** Preservation is important, and it is very common to see ROM dumps that are tampered with for various reasons. This script makes checking your ROM dumps easy and encourages people to search for those "original/unmodified dumps".
 ## How does it work?
-After you select a game file/enter your game file's filepath, this script utilizes python's hashlib and request libraries and does the following:
+Once you run the script, it does the following below:
 1. Generates an MD5 hash from the file.
 2. Sends a POST request to the No-Intro database with the generated hash.
 3. Analyzes data received from request for any game titles.
