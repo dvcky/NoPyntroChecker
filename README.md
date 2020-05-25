@@ -20,4 +20,5 @@ Pretty simple, just download the NoPyntroChecker repository [here](https://githu
 py nopyntrochecker.py /path/to/file/filename.filetype
 ```
 Once you press enter, the script will check to make sure you only added 1 argument, and then make sure your file actually exists. If those requirements are met, the script will run as described in ["How does it work?"](#how-does-it-work).
+
 **KEEP IN MIND:** This script does not know what files are ROMs and what are not. If you put in a file that isn't a ROM, it will still try to check it (which will most likely return no matches for obvious reasons).
