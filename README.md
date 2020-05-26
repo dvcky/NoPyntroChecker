@@ -7,20 +7,13 @@ No-Intro's testimony explains it pretty well [here](https://no-intro.org/).
 **TL;DR:** Preservation is important, and it is very common to see ROM dumps that are tampered with for various reasons. This script makes checking your ROM dumps easy and encourages people to search for those "original/unmodified dumps".
 ## How does it work?
 Once you run the script, it does the following below:
-1. Generates an MD5 hash from the file.
-2. Sends a POST request to the No-Intro database with the generated hash.
-3. Analyzes data received from request for any game titles.
+1. Downloads the No-Intro database to a local folder.
+2. Generates an MD5 hash from the file you selected.
+3. Searches No-Intro's database for your hash.
 4. Returns results based on analysis.
 ## Requirements
-Python 3+, an active internet connection, and your choice of game files. I just recently fixed a huge error in my code (thanks to r/Ploddit for pointing it out!), and this script now supports the following below (more will be added in the future):
-* Nintendo - Game Boy
-* Nintendo - Game Boy Advance
-* Nintendo - Game Boy Color
-* Nintendo - Nintendo 64
-* Nintendo - Nintendo DS
-* Nintendo - Nintendo Entertainment System
-* Nintendo - Super Nintendo Entertainment System
-* Sega - Mega Drive - Genesis
+Python 3+, an active internet connection, and your choice of game files. That's it! Make sure your console is supported by looking at the list of No-Intro's supported platforms on the dropdown on [their website](https://datomatic.no-intro.org/). (shown below)
+![](https://raw.githubusercontent.com/dvcky/NoPyntroChecker/master/supported-platforms.png)
 
 ## Usage
 Pretty simple, just download the NoPyntroChecker repository [here](https://github.com/dvcky/NoPyntroChecker/archive/master.zip) and extract the "nopyntrochecker.py" file from the repository's zip file to your preferred location. As long as you have Python installed, you should be able to run it from your terminal. Usage below: 
