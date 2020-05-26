@@ -27,7 +27,7 @@ Pretty simple, just download the NoPyntroChecker repository [here](https://githu
 ```
 py nopyntrochecker.py /path/to/file/filename.filetype
 ```
-Once you press enter, the script will check to make sure you only added 1 argument, and then make sure your file actually exists. If those requirements are met, the script will run as described in ["How does it work?"](#how-does-it-work).
+Once you press enter, the script will check to make sure you only added 1 argument, and then make sure your file actually exists. If those requirements are met, the script will run as described in [How does it work?](#how-does-it-work).
 
 ## FAQ
 #### "I have a ROM that runs on my console/emulator fine with no issues, and your script said no matches!"
