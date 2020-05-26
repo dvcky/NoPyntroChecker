@@ -29,8 +29,6 @@ py nopyntrochecker.py /path/to/file/filename.filetype
 ```
 Once you press enter, the script will check to make sure you only added 1 argument, and then make sure your file actually exists. If those requirements are met, the script will run as described in ["How does it work?"](#how-does-it-work).
 
-**KEEP IN MIND:** This script does not know which files are ROMs and which are not. If you input a file that isn't a ROM, it will still try to check it (which will most likely return no matches, for obvious reasons).
-
 ## FAQ
 #### "I have a ROM that runs on my console/emulator fine with no issues, and your script said no matches!"
 And that is most likely the releaser's intent. Groups that release ROM dumps often look for less noticable things they can take out of/add to ROMs, whether that be to conserve space or "enhance the user's experience" in some form. **CLARIFICATION: This program is _NOT_ meant for verifying that your ROM is working or "real", but rather that it is the original/unmodified dump.**
