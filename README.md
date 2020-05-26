@@ -1,8 +1,6 @@
 # NoPyntroChecker
 A small python script used for verifying the contents of a game file using the No-Intro database.
 
-**EDIT: Found a bug, only checks DS ROMs as of now. Give me a day or so to fix that, I need to index every filetype now.**
-
 ## Why is this needed?
 No-Intro's testimony explains it pretty well [here](https://no-intro.org/).
 
@@ -14,7 +12,15 @@ Once you run the script, it does the following below:
 3. Analyzes data received from request for any game titles.
 4. Returns results based on analysis.
 ## Requirements
-Python 3+, an active internet connection, and your choice of game files (currently only DS ROMs, sorry :( ). 
+Python 3+, an active internet connection, and your choice of game files. I just recently fixed a huge error in my code (thanks to r/Ploddit for pointing it out!), and this script now supports the following below (more will be added in the future):
+* Nintendo - Game Boy
+* Nintendo - Game Boy Advance
+* Nintendo - Game Boy Color
+* Nintendo - Nintendo 64
+* Nintendo - Nintendo DS
+* Nintendo - Nintendo Entertainment System
+* Nintendo - Super Nintendo Entertainment System
+* Sega - Mega Drive - Genesis
 
 ## Usage
 Pretty simple, just download the NoPyntroChecker repository [here](https://github.com/dvcky/NoPyntroChecker/archive/master.zip) and extract the "nopyntrochecker.py" file from the repository's zip file to your preferred location. As long as you have Python installed, you should be able to run it from your terminal. Usage below: 
@@ -27,7 +33,7 @@ Once you press enter, the script will check to make sure you only added 1 argume
 
 ## FAQ
 #### "I have a ROM that runs on my console/emulator fine with no issues, and your script said no matches!"
-And that is most likely the releaser's intent. Groups that release ROM dumps often look for less noticable things they can take out of/add to ROMs, whether that be to conserve space or "enhance the user's experience" in some form. **CLARIFICATION: This program is _NOT_ meant for verifying that your ROM is real, but rather that it is the original/unmodified dump.**
+And that is most likely the releaser's intent. Groups that release ROM dumps often look for less noticable things they can take out of/add to ROMs, whether that be to conserve space or "enhance the user's experience" in some form. **CLARIFICATION: This program is _NOT_ meant for verifying that your ROM is working or "real", but rather that it is the original/unmodified dump.**
 #### "I am confident that my ROM is unmodified, but your script still said no matches!"
 Aw shucks. Most likely one of two things happened:
 1. You were checking a lot of files at once, and you got a temp-ban. This is because sending lots of POST requests to No-Intro's database will cause it to think you are spamming or trying to DDOS them. No worries! These bans are usually over within a couple hours, and you can go right back to checking your dumps! If you are really impatient, you can also use a VPN or proxy and check them on that connection until you are unbanned.
