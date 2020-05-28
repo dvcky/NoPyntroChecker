@@ -8,7 +8,34 @@ import sys
 import xml.etree.ElementTree as ET
 import zipfile
 
+global file
+global md5
+global title
+
+def folderscan():
+    global file
+    global md5
+    global title
+    log = open(str('nopyntrochecker-log-' + str(datetime.datetime.now())).replace(':','').replace('.',''), 'a')
+    log.write('Check started at ' + str(datetime.datetime.now()) + '.')
+    folder = next(os.walk(file))[2]
+    folderpath = file
+    for dump in folder:
+        file = folderpath + '/' + dump
+        title = ''
+        scan()
+        log.write('\n\nFile: ' + file)
+        log.write('\nMD5: ' + md5)
+        if title == '':
+            log.write('\nCheck: Failed')
+        else:
+            log.write('\nCheck: ' + title)
+        log.write('\nTime: ' + str(datetime.datetime.now()))
+        
 def scan():
+    global file
+    global md5
+    global title
     print('--------------------------------\nFile: '+file)
     print('Hashing file...', end='\r')
     md5 = hashlib.md5(open(file, 'rb').read()).hexdigest().upper()
@@ -21,7 +48,8 @@ def scan():
         for game in root:
             for scans in game:
                 if scans.get('md5') == md5:
-                    print('Found in ' + platform.split('(', 1)[0] + '                                \n--------------------------------\nTitle: ' + game.get('name', default=None) + '\n--------------------------------')
+                    title = game.get('name', default=None)
+                    print('Found in ' + platform.split('(', 1)[0] + '                                \n--------------------------------\nTitle: ' + title + '\n--------------------------------')
                     return
     print('Scan finished.                                \n--------------------------------\nNo matches found :(\n--------------------------------')
 
@@ -46,15 +74,15 @@ def update():
     timestamp = open('nopyntrochecker-timestamp', 'w')
     timestamp.write(str(datetime.date.today()))
     print('Created timestamp file. (' + str(datetime.date.today()) + ')')
-    scan()
 
 
 if len(sys.argv) != 2:
-    print('\n--------------------------------\nInvalid usage!\nPlease use this script in a terminal with one filepath as the argument!\n(ex: py nopyntrochecker.py /path/to/file/filename.filetype)\n--------------------------------')
+    print('\n--------------------------------\nInvalid usage!\nPlease use this script in a terminal with one file or folder path as the argument!\n(ex: py nopyntrochecker.py /path/to/file/filename.filetype OR py nopyntrochecker.py /path/to/folder/foldername/)\n--------------------------------')
     input('Press enter to continue...')
     print()
     sys.exit()
 else:
+    global file
     file = str(sys.argv[1])
     if os.path.isfile(file):
         print('\n--------------------------------')
@@ -66,6 +94,7 @@ else:
                 option = input('Local copy of No-Intro database found, but not up-to-date! Update database? (anything except y will be considered no) ')
                 if option == 'y':
                     update()
+                    scan()
                 else:
                     scan()
         else:
@@ -75,6 +104,26 @@ else:
         print()
         sys.exit()
     else:
-        print('\n--------------------------------\nInvalid usage!\nFile does not exist! Make sure the filepath was entered properly!\n--------------------------------')
-        input('Press enter to continue...')
-        print()
+        if os.path.isdir(file):
+            if os.path.isdir('nopyntrochecker-db'):
+                if os.path.isfile('nopyntrochecker-timestamp') and open('nopyntrochecker-timestamp', 'r').read() == str(datetime.date.today()):
+                    print('Local and up-to-date copy of No-Intro database found!')
+                    folderscan()
+                else:
+                    option = input('Local copy of No-Intro database found, but not up-to-date! Update database? (anything except y will be considered no) ')
+                    if option == 'y':
+                        update()
+                        folderscan()
+                    else:
+                        folderscan()
+            else:
+                print('No local copy of No-Intro\'s database found!')
+                update()
+                folderscan()
+            input('Press enter to continue...')
+            print()
+            sys.exit()
+        else:
+            print('\n--------------------------------\nInvalid usage!\nFile or folder does not exist! Make sure the path was entered properly!\n--------------------------------')
+            input('Press enter to continue...')
+            print()
