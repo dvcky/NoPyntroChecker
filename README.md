@@ -20,11 +20,10 @@ Pretty simple, just download the NoPyntroChecker repository [here](https://githu
 ```
 py nopyntrochecker.py /path/to/file/filename.filetype
 ```
-This script is now also compatible with folders, shown here:
+This script is also compatible with folders, shown here:
 ```
 py nopyntrochecker.py /path/to/folder/
 ```
-Using a folder as the argument will scan every file in it, along with logging a the check into an additional file. This feature will be added to single files eventually as well, although cleaning up the code and fixing a few bugs is the primary focus at the moment.
 
 ## FAQ
 #### "I have a ROM that runs on my console/emulator fine with no issues, and your script said no matches!"
