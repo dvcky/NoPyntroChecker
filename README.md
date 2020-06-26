@@ -18,11 +18,11 @@ Python 3+, an active internet connection, and your choice of game files. That's 
 ## Usage
 Pretty simple, just download the NoPyntroChecker repository [here](https://github.com/dvcky/NoPyntroChecker/archive/master.zip) and extract the "nopyntrochecker.py" file from the repository's zip file to your preferred location. As long as you have Python installed, you should be able to run it from your terminal. Usage below: 
 ```
-py nopyntrochecker.py /path/to/file/filename.filetype
+./nopyntrochecker.py /path/to/file/filename.filetype
 ```
 This script is also compatible with folders, shown here:
 ```
-py nopyntrochecker.py /path/to/folder/
+./nopyntrochecker.py /path/to/folder/
 ```
 
 ## FAQ
