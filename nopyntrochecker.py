@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 def checkDatabase():
+    print('--------------------------------')
     if os.path.isdir('nopyntrochecker-db'):
         if os.path.isfile('nopyntrochecker-db.timestamp') and open('nopyntrochecker-db.timestamp', 'r').read() == str(datetime.date.today()):
             print('Local and up-to-date copy of the No-Intro database found!')
@@ -27,21 +28,21 @@ def updateDatabase():
     if os.path.isdir('nopyntrochecker-db'):
         print('Removing old database...')
         shutil.rmtree('nopyntrochecker-db')
-        print('Removed old database!')
+        print('Removed!')
     session = requests.Session()
     session.get('https://datomatic.no-intro.org/index.php?page=download&op=daily')
     page = session.post('https://datomatic.no-intro.org/index.php?page=download&op=daily', {'dat-type': 'standard', 'prepare_2': 'Prepare'})
     print('Session requested with ID ' + page.url.split('d=',1)[1])
     print('Downloading database file...')
     shutil.copyfileobj(session.post(page.url, {'download': 'Download'}, stream=True).raw, open('nopyntrochecker-db.zip', 'wb'))
-    print('Downloaded database file.')
+    print('Downloaded!')
     print('Extracting database file...')
     zipfile.ZipFile('nopyntrochecker-db.zip').extractall('nopyntrochecker-db')
-    print('Extracted database file.')
+    print('Extracted!')
     print('Cleaning up...')
     os.remove('nopyntrochecker-db.zip')
     timestamp = open('nopyntrochecker-db.timestamp', 'w').write(str(datetime.date.today()))
-    print('Created timestamp file. (' + str(datetime.date.today()) + ')')
+    print('Cleaned! Created timestamp file. (' + str(datetime.date.today()) + ')')
 
 def scanFile(file):
     print('--------------------------------')
@@ -49,7 +50,6 @@ def scanFile(file):
     print('Hashing file...', end='\r')
     md5 = hashlib.md5(open(file, 'rb').read()).hexdigest().upper()
     print('Hash generated: ' + md5)
-    print('--------------------------------')
     print('Scanning the No-Intro database...')
     database = next(os.walk('nopyntrochecker-db'))[2]  
     for platform in database:
@@ -61,12 +61,10 @@ def scanFile(file):
                 if scan.get('md5') == md5:
                     name = game.get('name', default=None).replace('&amp;','&')
                     print('Found in ' + platform.split('(', 1)[0] + '                                ')
-                    print('--------------------------------')
                     print('Game: ' + name)
                     print()
                     return [md5, name]
     print('Scan finished.                                ')
-    print('--------------------------------')
     print('No matches found.')
     print()
     return [md5, 'Failed']
@@ -105,6 +103,7 @@ else:
         log = open('nopyntrochecker-logs/nopyntrochecker-' + str(datetime.datetime.now()).replace(':','').replace('.','') + '.log', 'a')
         log.write('Check started at ' + str(datetime.datetime.now()) + '.')
         scan = scanFile(arg)
+        log.write('\n\nFile: ' + arg)
         log.write('\nMD5: ' + scan[0])
         log.write('\nCheck: ' + scan[1])
         log.write('\nTime: ' + str(datetime.datetime.now()))
