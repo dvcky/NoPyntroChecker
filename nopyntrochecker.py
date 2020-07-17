@@ -2,7 +2,6 @@ import datetime
 import hashlib
 import os
 import pathlib
-import requests
 import shutil
 import subprocess
 import sys
@@ -10,7 +9,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 def checkDatabase():
-    print('--------------------------------')
+    print('================================')
     if os.path.isdir('nopyntrochecker-db'):
         if os.path.isfile('nopyntrochecker-db.timestamp') and open('nopyntrochecker-db.timestamp', 'r').read() == str(datetime.date.today()):
             print('Local and up-to-date copy of the No-Intro database found!')
@@ -24,7 +23,6 @@ def checkDatabase():
             updateDatabase()
 
 def updateDatabase():
-    print('--------------------------------')
     if os.path.isdir('nopyntrochecker-db'):
         print('Removing old database...')
         shutil.rmtree('nopyntrochecker-db')
@@ -45,11 +43,14 @@ def updateDatabase():
     print('Cleaned! Created timestamp file. (' + str(datetime.date.today()) + ')')
 
 def scanFile(file):
+    print('================================')
+    print('File:')
+    print(file)
     print('--------------------------------')
-    print('File: '+file)
-    print('Hashing file...', end='\r')
+    print('Hashing file...')
     md5 = hashlib.md5(open(file, 'rb').read()).hexdigest().upper()
     print('Hash generated: ' + md5)
+    print('--------------------------------')
     print('Scanning the No-Intro database...')
     database = next(os.walk('nopyntrochecker-db'))[2]  
     for platform in database:
@@ -60,13 +61,13 @@ def scanFile(file):
             for scan in game:
                 if scan.get('md5') == md5:
                     name = game.get('name', default=None).replace('&amp;','&')
-                    print('Found in ' + platform.split('(', 1)[0] + '                                ')
-                    print('Game: ' + name)
-                    print()
+                    print('Found in ' + platform.split(' (', 1)[0] + '!                                ')
+                    print('--------------------------------')
+                    print(name)
                     return [md5, name]
-    print('Scan finished.                                ')
+    print('Could not find a platform with matching MD5.                                ')
+    print('--------------------------------')
     print('No matches found.')
-    print()
     return [md5, 'Failed']
 
 def scanFolder(folder):
@@ -84,11 +85,12 @@ def scanFolder(folder):
     log.write('\n\nCheck finished at ' + str(datetime.datetime.now()) + '.')
 
 #INIT CODE
-print('--------------------------------')
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--quiet', 'requests'])
-print('--------------------------------')
+print('================================')
+print('INSTALLING PREREQUISITES')
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'requests'])
+print('================================')
+import requests
 if len(sys.argv) != 2:
-    print()
     print('Invalid usage!')
     print('Please use this script in a terminal with one file or folder path as the argument!')
     print('(ex: py nopyntrochecker.py /path/to/file/filename.filetype OR py nopyntrochecker.py /path/to/folder/foldername/)')
@@ -96,7 +98,6 @@ else:
     arg = str(sys.argv[1])
     if not os.path.isdir('nopyntrochecker-logs'):
             os.mkdir('nopyntrochecker-logs')
-    print()
     if os.path.isfile(arg):
         print('FILE SCAN')
         checkDatabase()
@@ -114,11 +115,11 @@ else:
             checkDatabase()
             scanFolder(arg)
         else:
-            print('--------------------------------')
+            print('================================')
             print('Invalid usage!')
             print('File or folder does not exist! Make sure the path was entered properly!')
 
 #EXIT CODE
-print('--------------------------------')
+print('================================')
 input('Press enter to continue...')
 print()
