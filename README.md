@@ -1,3 +1,5 @@
+# UPDATE: No-Intro's dump site has now implemented reCaptcha, which makes it harder to download the daily file from them. I'm looking for a way to implement it, but for now just download the database manually and ignore any messages in my script telling you to update it (it will delete the files if you choose yes)
+
 # NoPyntroChecker
 A small python script used for verifying the contents of a game file using the No-Intro database.
 ### Why is this needed?
